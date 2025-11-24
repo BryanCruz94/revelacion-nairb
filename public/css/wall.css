@@ -442,3 +442,38 @@ body {
         font-size: 1.6rem;
     }
 }
+
+
+/* Botón para volver a index (hacer otro voto) */
+.back-btn {
+  display: block;
+  margin: 18px auto 6px;
+  padding: 12px 22px;
+  font-size: 1.05rem;
+  font-family: "Baloo 2", cursive;
+  color: #ffffff;
+  background: linear-gradient(180deg, #a8d6ff, #6ab6ef);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  transition: transform .1s ease, filter .2s ease;
+}
+
+.back-btn a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  filter: brightness(1.05);
+}
+
+.back-btn:active {
+  transform: scale(0.96);
+}
+
+/* En fase real/fake no debemos mostrar el botón */
+.hidden-btn {
+  display: none !important;
+}
