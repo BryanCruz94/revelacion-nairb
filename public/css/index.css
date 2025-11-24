@@ -1,0 +1,159 @@
+/* public/css/index.css */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@400;700&display=swap");
+
+:root {
+    --pink: #f8b7c9;
+    --pink-soft: #fde6ee;
+    --blue: #a9d8f7;
+    --blue-soft: #e8f5ff;
+    --purple-soft: #d9c7ff;
+    --ink: #2a2a2a;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+    --radius-xl: 22px;
+    --radius-pill: 999px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Nunito", system-ui, Arial, sans-serif;
+    color: var(--ink);
+
+    /* Wallpaper */
+    background-image:
+        /* linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.92)), */
+        url("../assets/wallpaper.avif");
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+
+    /* Tarjeta central */
+    background: rgba(255, 255, 255, 0.274);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    /* separación visual en mobile */
+    margin-top: 26px;
+}
+
+h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.9rem;
+    margin: 6px 0 2px;
+    letter-spacing: .3px;
+}
+
+p {
+    margin: 4px 0 14px;
+    font-size: 1rem;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border-radius: var(--radius-pill);
+    border: 2px dashed #e6e6e6;
+    outline: none;
+    background: var(--white);
+    text-align: center;
+    transition: .2s ease;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+input:focus {
+    border-color: var(--purple-soft);
+    box-shadow: 0 0 0 4px rgba(217, 199, 255, 0.35);
+}
+
+/* Botones */
+.buttons {
+    display: grid;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 14px 16px;
+    font-size: 1.05rem;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-family: "Baloo 2", cursive;
+    transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
+}
+
+/* Niño */
+#boyBtn {
+    background: linear-gradient(180deg, var(--blue-soft), var(--blue));
+    color: #0c3a57;
+}
+
+/* Niña */
+#girlBtn {
+    background: linear-gradient(180deg, var(--pink-soft), var(--pink));
+    color: #5a0c2a;
+}
+
+button:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+button:hover {
+    filter: saturate(1.05);
+}
+
+/* Mensaje de estado */
+.status {
+    margin-top: 12px;
+    min-height: 22px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #444;
+}
+
+/* micro detallitos tiernos */
+.container::before {
+    content: "🍼";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: -8px;
+    font-size: 1.4rem;
+    background: white;
+    border-radius: 999px;
+    padding: 4px 8px;
+    box-shadow: var(--shadow);
+}
+
+/* Responsive tweak */
+@media (max-width: 420px) {
+    .container {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}

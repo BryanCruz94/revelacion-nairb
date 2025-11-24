@@ -1,0 +1,4 @@
+/* public/css/admin.css */
+/* Sin estilos a propósito, solo mínimo para no verse roto */
+body { font-family: system-ui, Arial, sans-serif; padding: 16px; }
+button { display:block; margin: 8px 0; padding: 10px; }

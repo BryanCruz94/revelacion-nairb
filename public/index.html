@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Revelación de género Cruz-Arcos</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>REVELACIÓN DE GÉNERO</h1>
+      <h1>NIÑ@ CRUZ ARCOS</h1>
+      <p>Escribe tu nombre y elige tu apuesta 💙💗</p>
+
+      <form id="voteForm">
+        <input
+          id="nameInput"
+          type="text"
+          placeholder="Tu nombre"
+          autocomplete="name"
+          maxlength="40"
+          required
+        />
+
+        <div class="buttons">
+          <button type="button" id="boyBtn">Creo que es Niño 💙</button>
+          <button type="button" id="girlBtn">Creo que es Niña 💗</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </form>
+    </main>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,444 @@
+/* public/css/wall.css */
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Nunito:wght@400;700&display=swap");
+
+:root {
+    --pink: #ffb6cf;
+    --pink-soft: #ffe9f2;
+    --blue: #a8d6ff;
+    --blue-soft: #e5f4ff;
+    --lavender: #e5defe;
+    --white: #ffffff;
+    --ink: #333;
+    --shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    --radius: 22px;
+    --pill: 999px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", system-ui, sans-serif;
+    /* Wallpaper */
+    background-image:
+        /* linear-gradient(rgba(255,255,255,0.86), rgba(255,255,255,0.92)), */
+        url("../assets/wallpaper.avif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+.container {
+    padding: 14px;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* FX Canvas fullscreen */
+.fx-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Header */
+.top {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.top h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.9rem;
+    margin: 0;
+}
+
+#phaseLabel {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Voting layout */
+.voting {
+    display: flex;
+    gap: 12px;
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.col {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.col h3 {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Bubbles */
+.bubble {
+    padding: 10px 16px;
+    border-radius: var(--pill);
+    font-size: 1rem;
+    font-weight: 600;
+    width: fit-content;
+    max-width: 100%;
+    word-break: break-word;
+    color: var(--ink);
+    background: var(--pink-soft);
+    animation: floaty 3s ease-in-out infinite, pop .2s ease-out;
+    position: relative;
+}
+
+.bubble:nth-child(2n) {
+    background: var(--blue-soft);
+}
+
+.bubble:nth-child(3n) {
+    background: var(--lavender);
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.92);
+        opacity: 0.3;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes floaty {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Sections reveal */
+.hidden {
+    display: none;
+}
+
+.center {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    animation: fadeUp .7s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.center h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.center h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: 1.8rem;
+}
+
+.center p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+/* Fake reveal: más dramático */
+#fakeSection {
+    position: relative;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 3px dashed var(--blue);
+}
+
+.fake-drum {
+    animation: drumPulse .7s ease-in-out infinite, screenShake .5s linear infinite;
+}
+
+@keyframes drumPulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+        filter: brightness(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes screenShake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(2px, -2px);
+    }
+
+    50% {
+        transform: translate(-2px, 2px);
+    }
+
+    75% {
+        transform: translate(2px, 2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Real reveal: resplandor + zoom + glow */
+#realSection {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 4px solid transparent;
+}
+
+.real-glow {
+    animation: realZoom 1.2s ease both, rainbowBorder 3s linear infinite;
+}
+
+@keyframes realZoom {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rainbowBorder {
+    0% {
+        border-color: var(--pink);
+        box-shadow: 0 0 0 0 rgba(255, 182, 207, .6);
+    }
+
+    33% {
+        border-color: var(--blue);
+        box-shadow: 0 0 30px 10px rgba(168, 214, 255, .5);
+    }
+
+    66% {
+        border-color: var(--lavender);
+        box-shadow: 0 0 40px 12px rgba(229, 222, 254, .6);
+    }
+
+    100% {
+        border-color: var(--pink);
+        box-shadow: 0 0 0 0 rgba(255, 182, 207, .6);
+    }
+}
+
+/* Fotos reveal */
+.photos {
+    margin-top: 20px;
+    display: grid;
+    gap: 12px;
+}
+
+.photos img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .voting {
+        flex-direction: column;
+    }
+
+    .col {
+        min-height: auto;
+        padding: 12px;
+    }
+
+    .bubble {
+        font-size: .95rem;
+        padding: 10px 14px;
+    }
+}
+
+
+/* =========================
+   Carrusel Reveal (Princesa)
+   ========================= */
+.carousel {
+    margin-top: 18px;
+    position: relative;
+    background: rgba(255, 240, 246, 0.9);
+    /* rosadito */
+    border-radius: 22px;
+    padding: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    border: 3px dashed #ffb6cf;
+    overflow: hidden;
+}
+
+/* área visible */
+.carousel-track-wrapper {
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+/* pista horizontal */
+.carousel-track {
+    display: flex;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+/* cada slide */
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    padding: 6px;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
+    border: 4px solid #ffe9f2;
+}
+
+/* detallitos tiernos encima */
+.carousel-slide::after {
+    content: "✨💗";
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 4px 8px;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* botones prev/next */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    display: grid;
+    place-items: center;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.96);
+}
+
+/* puntitos */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #f6c3d4;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: transform .2s ease, opacity .2s ease, background .2s ease;
+}
+
+.carousel-dot.active {
+    opacity: 1;
+    transform: scale(1.35);
+    background: #ff86b0;
+}
+
+/* Responsive:
+   en compu se ve más “tarjeta grande” */
+@media (min-width: 900px) {
+    .carousel {
+        padding: 16px;
+    }
+
+    .carousel-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.6rem;
+    }
+}

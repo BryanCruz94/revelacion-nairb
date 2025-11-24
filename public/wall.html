@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Muro de votaciones</title>
+    <link rel="stylesheet" href="./css/wall.css" />
+</head>
+
+<body>
+    <canvas id="fxCanvas" class="fx-canvas hidden"></canvas>
+    <main class="container">
+
+        <!-- Header simple -->
+        <header class="top">
+            <h2 id="tituloVotaciones">VOTACIONES</h2>
+            <p id="phaseLabel" class="hidden">Fase: voting</p>
+        </header>
+
+        <!-- Sección voting -->
+        <section id="votingSection" class="voting">
+            <div class="col">
+                <h3>Niño 💙</h3>
+                <div id="boyList" class="list"></div>
+            </div>
+            <div class="col">
+                <h3>Niña 💗</h3>
+                <div id="girlList" class="list"></div>
+            </div>
+        </section>
+
+        <!-- Sección fake -->
+        <section id="fakeSection" class="center hidden">
+            <h1>🥁🥁🥁</h1>
+            <h2>¡Es un niño!</h2>
+        </section>
+
+        <!-- Sección real -->
+        <section id="realSection" class="center hidden">
+            <h2>Lo sentimos… 😅</h2>
+            <p id="winnersText"></p>
+            <h1>Viene una princesa en camino 👑💗</h1>
+
+            <!-- Fotos del eco -->
+            <div id="photoCarousel" class="carousel">
+                <button class="carousel-btn prev" aria-label="Anterior">❮</button>
+
+                <div class="carousel-track-wrapper">
+                    <div id="carouselTrack" class="carousel-track"></div>
+                </div>
+
+                <button class="carousel-btn next" aria-label="Siguiente">❯</button>
+
+                <div id="carouselDots" class="carousel-dots"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="./js/wall.js"></script>
+    <script type="module" src="./js/slider.js"></script>
+
+</body>
+
+</html>
